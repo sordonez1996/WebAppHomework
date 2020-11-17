@@ -5,4 +5,4 @@ This project is a homework assignment to teach how to get Pycharm setup with Doc
 # Query Screenshot
 ![Data Screenshot](/screenshots/query.png) 
 # Homepage Using Bootstrap and Templates
-![Bootstrap and Templates Screenshot](/screenshots/bootstrap-templates.png) 
+![Bootstrap and Templates Screenshot](/screenshots/bootstrap-template.png) 
