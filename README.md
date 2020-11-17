@@ -4,3 +4,5 @@ This project is a homework assignment to teach how to get Pycharm setup with Doc
 ![Postman Screenshot](/screenshots/postman.png)
 # Query Screenshot
 ![Data Screenshot](/screenshots/query.png) 
+# Homepage Using Bootstrap and Templates
+![Bootstrap and Templates Screenshot](/screenshots/bootstrap-templates.png) 
