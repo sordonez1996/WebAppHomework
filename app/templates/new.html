@@ -1,6 +1,10 @@
 {% extends "layout.html" %}
 {% block content %}
 <form action="/cities/new" method="POST">
+    <div class="col">
+        <label for="id">ID (Please do not repeat numbers!)</label>
+        <input id="id" type="text" class="form-control" placeholder="ID" name="id">
+    </div>
     <div class="row">
         <div class="col">
             <label for="fldName">City Name</label>
