@@ -3,6 +3,7 @@
 <table class="table">
     <thead>
     <tr>
+        <th scope="col">ID</th>
         <th scope="col">City Name</th>
         <th scope="col">Latitude</th>
         <th scope="col">Longitude</th>
@@ -15,6 +16,7 @@
     <tbody>
     {% for city in cities %}
     <tr>
+        <td>{{ city.id }}</td>
         <td><a href="view/{{city.id}}">{{ city.fldName }}</a></td>
         <td>{{ city.fldLat }}</td>
         <td>{{ city.fldLong }}</td>
