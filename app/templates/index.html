@@ -4,23 +4,20 @@
     <thead>
     <tr>
         <th scope="col">ID</th>
-        <th scope="col">City Name</th>
-        <th scope="col">Latitude</th>
-        <th scope="col">Longitude</th>
-        <th scope="col">Country</th>
-        <th scope="col">Abbreviation</th>
-        <th scope="col">Capital Status</th>
-        <th scope="col">Population</th>
+        <th scope="col">Year</th>
+        <th scope="col">Age</th>
+        <th scope="col">Name</th>
+        <th scope="col">Movies</th>
     </tr>
     </thead>
     <tbody>
-    {% for city in cities %}
+    {% for movie in movies %}
     <tr>
-        <td>{{ movies.id }}</td>
-        <td><a href="view/{{city.id}}">{{ city.fldYear }}</a></td>
-        <td>{{ city.fldAge }}</td>
-        <td>{{ city.fldName }}</td>
-        <td>{{ city.fldMovie }}</td>
+        <td>{{ movie.id }}</td>
+        <td><a href="view/{{movie.id}}">{{ movie.fldYear }}</a></td>
+        <td>{{ movie.fldAge }}</td>
+        <td>{{ movie.fldName }}</td>
+        <td>{{ movie.fldMovie }}</td>
     </tr>
     {% endfor %}
     </tbody>
