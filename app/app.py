@@ -62,7 +62,7 @@ def form_insert_post():
     cursor = mysql.get_db().cursor()
     inputData = (request.form.get('id'), request.form.get('fldYear'), request.form.get('fldAge'), request.form.get('fldName'),
                  request.form.get('fldMovie'))
-    sql_insert_query = """INSERT INTO tblOscar (id,fldYear,fldAge,fldName,fldMovie) VALUES (%s, %s,%s, %s,%s, %s) """
+    sql_insert_query = """INSERT INTO tblOscar (id,fldYear,fldAge,fldName,fldMovie) VALUES (%s, %s,%s, %s,%s) """
     cursor.execute(sql_insert_query, inputData)
     mysql.get_db().commit()
     return redirect("/", code=302)
