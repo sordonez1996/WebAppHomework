@@ -96,4 +96,8 @@ INSERT INTO tblOscar (id, fldYear, fldAge, fldName, fldMovie) VALUES
     (86, 2013, 55,' "Daniel Day-Lewis"',' "Lincoln"'),
     (87, 2014, 44,' "Matthew McConaughey"',' "Dallas Buyers Club"'),
     (88, 2015, 33,' "Eddie Redmayne"',' "The Theory of Everything"	'),
-    (89, 2016, 41,' "Leonardo DiCaprio"',' "The Revenant"');
+    (89, 2016, 41,' "Leonardo DiCaprio"',' "The Revenant"'),
+    (90, 2017, 45,' "Casey Affleck"',' "Manchester By The Sea"'),
+    (91, 2018, 41,' "Gary Oldman"',' "Darkest Hour"'),
+    (92, 2019, 39,' "Rami Malek"',' "Bohemian Rhapsody"'),
+    (93, 2020, 46,' "Joaquin Phoenix"',' "Joker"');
