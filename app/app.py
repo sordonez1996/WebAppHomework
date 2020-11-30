@@ -76,7 +76,7 @@ def form_delete_post(movies_id):
     return redirect("/", code=302)
 
 
-@app.route('/api/v1/OscarWinnings(Men)', methods=['GET'])
+@app.route('/api/v1/movies', methods=['GET'])
 def api_browse() -> str:
     cursor = mysql.get_db().cursor()
     cursor.execute('SELECT * FROM tblOscar')
@@ -86,7 +86,7 @@ def api_browse() -> str:
     return resp
 
 
-@app.route('/api/v1/OscarWinnings(Men)/<int:movies_id>', methods=['GET'])
+@app.route('/api/v1/movies/<int:movies_id>', methods=['GET'])
 def api_retrieve(movies_id) -> str:
     cursor = mysql.get_db().cursor()
     cursor.execute('SELECT * FROM tblOscar WHERE id=%s', movies_id)
@@ -96,21 +96,40 @@ def api_retrieve(movies_id) -> str:
     return resp
 
 
-@app.route('/api/v1/OscarWinnings(Men)/', methods=['POST'])
-def api_add() -> str:
-    resp = Response(status=201, mimetype='application/json')
-    return resp
-
-
-@app.route('/api/v1/OscarWinnings(Men)/<int:movies_id>', methods=['PUT'])
+@app.route('/api/v1/movies/<int:movies_id>', methods=['PUT'])
 def api_edit(movies_id) -> str:
+    cursor = mysql.get_db().cursor()
+    content = request.json
+    inputData = (content['id'],content['fldYear'], content['fldAge'], content['fldName'],
+                 content['fldMovie'], movies_id)
+    sql_update_query = """UPDATE tblOscar t SET t.id = %s, t.fldYear = %s, t.fldAge = %s, t.fldName = %s, t.fldMovie = 
+        %s WHERE t.id = %s """
+    cursor.execute(sql_update_query, inputData)
+    mysql.get_db().commit()
+    resp = Response(status=200, mimetype='application/json')
+    return resp
+
+@app.route('/api/v1/movies', methods=['POST'])
+def api_add() -> str:
+
+    content = request.json
+
+    cursor = mysql.get_db().cursor()
+    inputData = (content['id'], content['fldYear'], content['fldAge'],
+                 content['fldName'], content['fldMovie'])
+    sql_insert_query = """INSERT INTO tblOscar (id,fldYear,fldAge,fldName,fldMovie) VALUES (%s, %s,%s, %s,%s) """
+    cursor.execute(sql_insert_query, inputData)
+    mysql.get_db().commit()
     resp = Response(status=201, mimetype='application/json')
     return resp
 
-
-@app.route('/api/OscarWinnings(Men)/<int:movies_id>', methods=['DELETE'])
+@app.route('/api/v1/movies/<int:movies_id>', methods=['DELETE'])
 def api_delete(movies_id) -> str:
-    resp = Response(status=210, mimetype='application/json')
+    cursor = mysql.get_db().cursor()
+    sql_delete_query = """DELETE FROM tblOscar WHERE id = %s """
+    cursor.execute(sql_delete_query, movies_id)
+    mysql.get_db().commit()
+    resp = Response(status=200, mimetype='application/json')
     return resp
 
 
